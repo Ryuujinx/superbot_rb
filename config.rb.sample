@@ -1,0 +1,9 @@
+#This file configured authentication for S3, Discord as well as the prefix used for commands.
+
+S3BUCKET = 'myquotes'
+S3REGION = 'us-west-2'
+S3PROFILE = 'default'
+DISCORD_TOKEN = 'Yeet that token here'
+DISCORD_CLIENT_ID = 'Client ID here'
+PREFIX = '!'
+
