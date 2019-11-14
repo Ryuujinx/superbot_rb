@@ -30,6 +30,7 @@ bot.command(:help, min_args: 0) do |event|
 #{PREFIX}sergequote: Gets a random serge quote.
 #{PREFIX}deletequote <ID>: Starts the process to delete a quote.
 #{PREFIX}sergebox: Gives you a sergebox.
+#{PREFIX}achallengerappears: Gives you a challenger.
 #{PREFIX}gdq: Gives a random GDQ quote."
 end
 
@@ -139,6 +140,11 @@ end
 
 bot.command(:sergebox) do |event|
   event.respond "https://imgur.com/M3W3pQ3"
+end
+
+
+bot.command(:achallengerappears) do |event|
+  event.respond "https://imgur.com/1Mc9tU2"
 end
 
 bot.command(:reparsequotedb) do |event|
