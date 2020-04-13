@@ -6,4 +6,5 @@ S3PROFILE = 'default'
 DISCORD_TOKEN = 'Yeet that token here'
 DISCORD_CLIENT_ID = 'Client ID here'
 PREFIX = '!'
-
+ROLE_BLACKLIST = ["@everyone", "Queen of Shitposts", "admin", "founder", "color-green", "Bots", "Server Booster"]
+ROLE_CHANNEL = "role-assign"

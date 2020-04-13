@@ -31,7 +31,10 @@ bot.command(:help, min_args: 0) do |event|
 #{PREFIX}deletequote <ID>: Starts the process to delete a quote.
 #{PREFIX}sergebox: Gives you a sergebox.
 #{PREFIX}achallengerappears: Gives you a challenger.
-#{PREFIX}gdq: Gives a random GDQ quote."
+#{PREFIX}gdq: Gives a random GDQ quote.
+#{PREFIX}listroles: Gives a list of roles.
+#{PREFIX}assignrole <ROLE>: Assigns a role to yourself, takes multiple space seperated roles as an argument.
+#{PREFIX}removerole <ROLE>: Removes the given role from yourself"
 end
 
 
@@ -55,6 +58,42 @@ bot.command(:quote, min_args: 0, max_args: 1) do |event, args|
   event.respond "Quote ID #{num}: #{response}"
 end
 
+bot.command(:listroles) do |event|
+  if event.channel.name == ROLE_CHANNEL
+    server_roles = event.server.roles.map {|role| role.name}
+    roles = server_roles.select {|role| ! ROLE_BLACKLIST.include?(role)}
+    event.respond "#{roles.join(', ')}"
+  end
+end
+
+bot.command(:assignrole, min_args: 1) do |event, *args|
+  if event.channel.name == ROLE_CHANNEL
+    roles = event.server.roles.map {|role| [role.name.downcase, role]}.to_h
+    role_check = ROLE_BLACKLIST.map(&:downcase)
+    added_roles = []
+    args.each do |role|
+      if ! role_check.include?(role.downcase)
+        event.user.add_role(roles[role.downcase])
+        added_roles << role
+      end
+    end
+    event.respond "Added #{added_roles.join(', ')} to #{event.user.username}"
+  end
+end
+
+bot.command(:removerole, min_args: 1) do |event, *args|
+  if event.channel.name == ROLE_CHANNEL
+    roles = event.server.roles.map {|role| [role.name.downcase, role]}.to_h
+    removed_roles = Array.new
+    args.each do |role|
+      if event.user.role?(roles[role.downcase])
+        event.user.remove_role(roles[role.downcase])
+        removed_roles << role
+      end
+    end
+    event.respond "Removed \"#{removed_roles.join(', ')}\" from #{event.user.username}"
+  end
+end
 
 
 bot.command(:addquote, min_args: 1) do |event, *args|
@@ -88,7 +127,7 @@ bot.command(:grepquote, min_args: 1) do |event, *args|
    yml.each_pair do |key, value|
      if value.downcase =~ /#{args.join(' ').downcase}/
        cnt += 1
-       matches_hash[key] = value 
+       matches_hash[key] = value
      end
    end
    if cnt == 0
@@ -205,7 +244,3 @@ end
 
 
 bot.run
-
-
-
-
