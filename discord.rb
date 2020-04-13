@@ -13,7 +13,10 @@ Dir.mkdir('tmp') unless Dir.exists?('tmp')
 
 
 
-cmd = Commands.new
+
+bot = Discordrb::Commands::CommandBot.new(token: DISCORD_TOKEN, client_id: DISCORD_CLIENT_ID, prefix: PREFIX)
+
+cmd = Bot.Commands.new
 Commands.instance_methods(false).each do |x|
   cmd.send(x, bot)
 end

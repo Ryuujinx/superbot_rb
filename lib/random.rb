@@ -85,9 +85,3 @@ if __FILE__ == $0
 
 end
 
-module Vars
-  r = Rand.new(YAML.load_file('data/quotes.yml').size)
-  s3 = Aws::S3::Client.new(profile: S3PROFILE, region: S3REGION)
-  bot = Discordrb::Commands::CommandBot.new(token: DISCORD_TOKEN, client_id: DISCORD_CLIENT_ID, prefix: PREFIX)
-end
-

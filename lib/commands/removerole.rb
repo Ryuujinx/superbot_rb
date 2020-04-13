@@ -1,4 +1,4 @@
-class Commands
+class Commands < Bot
   def removerole(bot)        
     bot.command(:removerole, min_args: 1) do |event, *args|
       if event.channel.name == ROLE_CHANNEL

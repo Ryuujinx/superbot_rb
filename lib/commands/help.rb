@@ -1,4 +1,4 @@
-class Commands
+class Commands < Bot
   def help(bot)
     bot.command(:help, min_args: 0) do |event|
     event.respond "Commands:

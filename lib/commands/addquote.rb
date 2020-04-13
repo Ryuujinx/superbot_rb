@@ -1,4 +1,4 @@
-class Commands
+class Commands < Bot
   def addquote(bot)        
     bot.command(:addquote, min_args: 1) do |event, *args|
       yml = YAML.load_file 'data/quotes.yml'
@@ -7,7 +7,7 @@ class Commands
         yml[size] = args.join(' ')
         file.write(yml.to_yaml)
       end
-      r.size = yml.size
+      @@r.size = yml.size
       event.respond "Quote had been added as Quote ID #{size}!"
     end
           
@@ -18,7 +18,7 @@ class Commands
         yml[size] = args.join(' ')
         file.write(yml.to_yaml)
       end
-      r.size = yml.size
+      @@r.size = yml.size
       event.respond "Quote had been added as Quote ID #{size}!"
     end
   end

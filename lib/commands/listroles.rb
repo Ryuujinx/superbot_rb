@@ -1,4 +1,4 @@
-class Commands
+class Commands < Bot
   def listroles(bot)
     bot.command(:listroles) do |event|
       if event.channel.name == ROLE_CHANNEL

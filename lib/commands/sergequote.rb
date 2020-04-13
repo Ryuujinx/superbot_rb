@@ -1,4 +1,4 @@
-class Commands
+class Commands < Bot
   def sergequote(bot)
     bot.command(:sergequote, min_args: 0, max_args:0) do |event|
       yml = YAML.load_file 'data/quotes.yml'

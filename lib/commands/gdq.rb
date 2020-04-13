@@ -1,4 +1,4 @@
-class Commands
+class Commands < Bot
   def gdq(bot) 
     bot.command(:gdq) do |event|
       event.respond "#{Net::HTTP.get(URI('https://taskinoz.com/gdq/api/'))}"

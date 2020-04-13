@@ -1,4 +1,4 @@
-class Commands
+class Commands < Bot
   def sergebox(bot)     
     bot.command(:reparsequotedb) do |event|
       yml = YAML.load_file 'data/quotes.yml'
@@ -9,7 +9,7 @@ class Commands
         end
         file.write(yml2.to_yaml)
       end
-      r.size = yml.size
+      @@r.size = yml.size
       event.respond "Reparsed DB"
     end
   end

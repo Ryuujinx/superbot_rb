@@ -1,4 +1,4 @@
-class Commands
+class Commands < Bot
   def deletequote(bot)
     bot.command(:deletequote, min_args:1, max_args:1) do |event, *args|
       qid = args.join(' ')
@@ -31,6 +31,7 @@ class Commands
             file.write(yml2.to_yaml)
           end
           event.respond "Quote #{qid} Deleted."
+          @@r.size = yml2.size
         else
           event.respond "DB Changed! Deletion canceled, try again."
         end
