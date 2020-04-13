@@ -3,15 +3,12 @@
 require 'rubygems'
 require 'discordrb'
 require 'yaml'
-require './random.rb'
-require './config.rb'
 require 'net/http'
 require 'uri'
 require 'aws-sdk-s3'
-
-
-Dir["lib/commands/*.rb"].each {file| load file}
-Dir["lib/config/*.rb"].each {file| load file}
+Dir["lib/*.rb"].each {|file| load file}
+Dir["lib/commands/*.rb"].each {|file| load file}
+Dir["lib/config/*.rb"].each {|file| load file}
 
 
 r = Rand.new(YAML.load_file('data/quotes.yml').size)
