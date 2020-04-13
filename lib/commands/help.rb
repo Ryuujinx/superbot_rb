@@ -14,7 +14,7 @@ class Commands
                 #{PREFIX}listroles: Gives a list of roles.
                 #{PREFIX}assignrole <ROLE>: Assigns a role to yourself, takes multiple space seperated roles as an argument.
                 #{PREFIX}removerole <ROLE>: Removes the given role from yourself"
-            end
         end
     end
 end
+
