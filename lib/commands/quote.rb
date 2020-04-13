@@ -1,4 +1,5 @@
 class Commands
+  include Vars
   def quote(bot)
     bot.command(:quote, min_args: 0, max_args: 1) do |event, args|
       yml = YAML.load_file 'data/quotes.yml'
