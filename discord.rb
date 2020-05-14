@@ -8,6 +8,7 @@ require 'uri'
 require 'aws-sdk-s3'
 Dir["lib/*.rb"].each {|file| load file}
 Dir["lib/commands/*.rb"].each {|file| load file}
+Dir["lib/events/*.rb"].each {|file| load file}
 Dir.mkdir('tmp') unless Dir.exists?('tmp')
 
 
