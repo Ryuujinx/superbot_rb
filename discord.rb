@@ -20,6 +20,11 @@ Commands.instance_methods(false).each do |x|
   cmd.send(x, bot)
 end
 
+events = Events.new
+Events.instance_methods(false).each do |x|
+  cmd.send(x, bot)
+end
+
 #puts "This bot's invite URL is #{bot.invite_url}"
 
 bot.run
