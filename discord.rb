@@ -21,8 +21,8 @@ Commands.instance_methods(false).each do |x|
   cmd.send(x, bot)
 end
 
-events = Events.new
-Events.instance_methods(false).each do |x|
+events = BotEvents.new
+BotEvents.instance_methods(false).each do |x|
   cmd.send(x, bot)
 end
 
