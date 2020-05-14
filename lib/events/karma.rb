@@ -5,7 +5,6 @@ class Events < Bot
       if matchdata[:user] != "<@!#{event.user.id}>" #Don't allow users to modify their own karma.
         yml = YAML.load_file 'data/karma.yml'
         if matchdata[:op] == "++"
-          puts yml[matchdata[:user]]
           yml[matchdata[:user]].nil? ? yml[matchdata[:user]] = 1 : yml[matchdata[:user]] += 1  #If the user doesn't exist, set them to 1.
           event.respond "<@!#{event.user.id}> gave #{matchdata[:user]} karma! New karma total: #{yml[matchdata[:user]]}"
         elsif matchdata[:op] == "--"
