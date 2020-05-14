@@ -1,7 +1,7 @@
 class Events < Bot
   def karma_change(bot)  
-    bot.message(with_text: /\<@!\d+>\s?(?:\+\+|--)\s?$/) do |event|
-      matchdata = /(?<user>\<@!\d+>)\s?(?<op>\+\+|--)\s?$/.match(event.text)  #There's no way to get match from the first regex without doing gross things like using globals, so we check here.
+    bot.message(with_text: /.*\<@!\d+>\s?(?:\+\+|--)\s?$/) do |event|
+      matchdata = /.*(?<user>\<@!\d+>)\s?(?<op>\+\+|--)\s?$/.match(event.text)  #There's no way to get match from the first regex without doing gross things like using globals, so we check here.
       if matchdata[:user] != "<@!#{event.user.id}>" #Don't allow users to modify their own karma.
         yml = YAML.load_file 'data/karma.yml'
         if matchdata[:op] == "++"
