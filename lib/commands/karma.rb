@@ -5,11 +5,11 @@ class Commands < Bot
       if args.nil?
         sortedkarma = yml.sort_by { |user, karma| -karma }
         event.respond "Top 5 users by karma: 
-        * #{sortedkarma[0][0]}: #{sortedkarma[0][1]}
-        * #{sortedkarma[1][0]}: #{sortedkarma[1][1]}
-        * #{sortedkarma[2][0]}: #{sortedkarma[2][1]}
-        * #{sortedkarma[3][0]}: #{sortedkarma[3][1]}
-        * #{sortedkarma[4][0]}: #{sortedkarma[4][1]}"
+        > #{sortedkarma[0][0]}: #{sortedkarma[0][1]}
+        > #{sortedkarma[1][0]}: #{sortedkarma[1][1]}
+        > #{sortedkarma[2][0]}: #{sortedkarma[2][1]}
+        > #{sortedkarma[3][0]}: #{sortedkarma[3][1]}
+        > #{sortedkarma[4][0]}: #{sortedkarma[4][1]}"
       else
         response = yml[args]
         if response.nil?
