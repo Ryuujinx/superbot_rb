@@ -5,8 +5,9 @@ class Events < Bot
       @@scheduler.cron timer[0] do
         channels = bot.servers[BOT_SERVER].channels
         channels.each do |channel|
-        if channel.name == BOT_CHANNEL
-          bot.send_message(channel.id, timer[1])
+          if channel.name == BOT_CHANNEL
+            bot.send_message(channel.id, timer[1])
+          end
         end
       end
     end
