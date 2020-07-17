@@ -1,6 +1,6 @@
 class Commands < Bot
   def addtimer(bot)
-    bot.command(:addquote, min_args: 6) do |event, *args|
+    bot.command(:addtimer, min_args: 6) do |event, *args|
       timers = YAML.load_file 'data/timers.yml'
       cron_time = "#{args[0]} #{args[1]} #{args2} #{args3} #{args4}"
       cron_command = args[5..-1].join(' ')
