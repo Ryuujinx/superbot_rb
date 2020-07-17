@@ -7,8 +7,9 @@ class Commands < Bot
       @@scheduler.cron cron_time do
         channels = bot.servers[BOT_SERVER].channels
         channels.each do |channel|
-        if channel.name == BOT_CHANNEL
-          bot.send_message(channel.id, cron_command)
+          if channel.name == BOT_CHANNEL
+            bot.send_message(channel.id, cron_command)
+          end
         end
       end
       timers << [cron_time, cron_command]
