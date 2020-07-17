@@ -2,6 +2,7 @@
 
 require 'rubygems'
 require 'discordrb'
+require 'rufus-scheduler'
 require 'yaml'
 require 'net/http'
 require 'uri'
