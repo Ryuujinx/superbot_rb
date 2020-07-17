@@ -1,4 +1,4 @@
-#This file configured authentication for S3, Discord as well as the prefix used for commands.
+#This file configures authentication for S3, Discord as well as the prefix used for commands.
 
 S3BUCKET = 'myquotes'
 S3REGION = 'us-west-2'
@@ -8,3 +8,5 @@ DISCORD_CLIENT_ID = 'Client ID here'
 PREFIX = '!'
 ROLE_BLACKLIST = ["@everyone", "Queen of Shitposts", "admin", "founder", "color-green", "Bots", "Server Booster"]
 ROLE_CHANNEL = "role-assign"
+BOT_SERVER = 123456789012345678
+BOT_CHANNEL = "bot-spam"

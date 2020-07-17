@@ -6,7 +6,7 @@ class Commands < Bot
         role_check = ROLE_BLACKLIST.map(&:downcase)
         added_roles = []
         args.each do |role|
-          if ! role_check.include?(role.downcase)
+          unless role_check.include?(role.downcase)
             event.user.add_role(roles[role.downcase])
             added_roles << role
           end
